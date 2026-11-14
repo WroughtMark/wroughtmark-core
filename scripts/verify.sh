@@ -12,8 +12,20 @@ fi
 echo "==> 1/14 Rust core tests"
 cargo test "${CARGO_FLAGS[@]}" --manifest-path "$ROOT/core/Cargo.toml"
 
-echo "==> 2/14 Windows/Linux Rust desktop tests"
+echo "==> 2/14 Cross-platform Rust desktop tests (Windows / Linux / macOS)"
 cargo test "${CARGO_FLAGS[@]}" --manifest-path "$ROOT/desktop-win-linux/Cargo.toml"
+
+if [ "$(uname -s)" = "Darwin" ] && command -v swift >/dev/null 2>&1; then
+  echo "==> 2b/14 macOS SwiftUI MenuBarExtra app & Swift C-ABI FFI tests"
+  cargo build "${CARGO_FLAGS[@]}" --manifest-path "$ROOT/core/Cargo.toml" >/dev/null
+  if swift package --package-path "$ROOT/apple" describe >/dev/null 2>&1; then
+    SWIFT_FLAGS=()
+  else
+    SWIFT_FLAGS=("--disable-sandbox")
+  fi
+  swift test "${SWIFT_FLAGS[@]}" --package-path "$ROOT/apple"
+  swift build "${SWIFT_FLAGS[@]}" --package-path "$ROOT/apple" --product WroughtmarkApp >/dev/null
+fi
 
 echo "==> 3/14 Web SDK cross-language verification tests"
 cargo build "${CARGO_FLAGS[@]}" --manifest-path "$ROOT/core/Cargo.toml" --bin wroughtmark >/dev/null

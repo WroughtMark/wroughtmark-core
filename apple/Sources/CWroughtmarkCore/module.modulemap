@@ -1,0 +1,4 @@
+module CWroughtmarkCore {
+    header "include/shim.h"
+    export *
+}

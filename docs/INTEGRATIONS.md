@@ -14,4 +14,5 @@ Every open-core capture plugin in `wroughtmark-core` runs locally on the creator
 | **Visual / Photo / Video** | Photoshop, Premiere Pro (UXP) | `integrations/adobe-uxp/` | `v0.1` / `v0.2` | Built & Tested |
 | **3D Artists & CAD** | Blender | `integrations/blender/` | `v0.1` / `v0.3` | Built & Tested |
 | **Music Producers** | Reaper | `integrations/reaper/` | `v0.1` / `v0.2` | Built & Tested |
-| **Local Git & File Watcher** | Any local project, Git hook (`wroughtmark git-sign`), or media container | `core/`, `desktop-win-linux/` | `v0.1` -> `v0.3` | Built & Tested |
+| **macOS Desktop & Menu Bar** | Native macOS `v14+` `MenuBarExtra` folder watcher, seal minting & HTML Dossier exporter | `apple/` | `v0.1` -> `v0.3` | Built & Tested |
+| **Local Git & File Watcher** | Any local project, Git hook (`wroughtmark git-sign`), or media container (Windows, Linux & macOS) | `core/`, `desktop-win-linux/` | `v0.1` -> `v0.3` | Built & Tested |

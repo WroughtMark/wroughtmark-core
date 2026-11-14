@@ -8,7 +8,8 @@
 ## What Is Included in `wroughtmark-core`
 
 - **`core/`**: Rust cryptographic library (`wroughtmark-core`), C ABI (`include/wroughtmark.h`), 9-vector `analyze_process_chain()` & `classify_authorship_tier()`, blind `TimeAnchor` verifier, self-contained `PNG` `iTXt` / `WAV` `WMKS` / trailer container embedders, USCO & C2PA (`c2pa.wroughtmark.process` `0.3.0`) exporters, and the `wroughtmark` CLI (`keygen`, `record`, `watch`, `seal`, `verify`, `dossier`, `handoff`, `embed`, `verify-embedded`, `c2pa-export`, `usco-manifest`, `git-sign`).
-- **`desktop-win-linux/`**: Cross-platform native Rust (`eframe`/`egui`) folder watcher, scorer, and HTML Dossier exporter.
+- **`apple/`**: Native macOS (`v14+`) SwiftUI `MenuBarExtra` folder watcher, Discipline selector, seal minter/verifier, and HTML Dossier exporter (`WroughtmarkApp` + `WroughtmarkKit` FFI linked against `libwroughtmark_core.a`).
+- **`desktop-win-linux/`**: Cross-platform native Rust (`eframe`/`egui`) folder watcher, scorer, and HTML Dossier exporter for Windows, Linux, and macOS.
 - **`web-sdk/`**: Zero-dependency WebCrypto verifier (`verify.ts`) matching Rust canonical JSON byte-for-byte, plus `<wroughtmark-badge>` Web Component (`badge.ts`).
 - **Single-User Editor, Browser, Suite & DCC Plugins**:
   - `browser-extension/` (Manifest V3: Google Docs, Overleaf, Canvas, Blackboard)

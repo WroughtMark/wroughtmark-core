@@ -8,7 +8,8 @@
 
 ```
   [ Capture Surfaces ]                   [ Local Process Engine ]              [ Offline Verification & Envelopes ]
-  ├── Desktop GUI (Win/Linux `eframe`) ─┐
+  ├── macOS MenuBarExtra (`apple/`)     ─┐
+  ├── Desktop GUI (Win/Linux/macOS)     ─┤
   ├── CLI (`watch`, `git-sign`, `embed`) ├──▶  ProcessChain (BLAKE3/SHA-256) ─▶  WebCrypto Verifier (`verify.ts`)
   ├── Browser Ext (Docs/Canvas/Overleaf) │     + Ed25519 Signature               + Self-Contained Containers (`PNG`/`WAV`/`V03`)
   ├── Office.js Add-in (`customXml`)    ─┼──▶  + 9-Vector AI Assay (`v0.2`)   ─▶  OpenXML & Drive `appProperties` Check
@@ -31,8 +32,9 @@
   - C ABI (`ffi.rs`, `include/wroughtmark.h`): `wm_sha256_hex`, `wm_verify_seal_json`, `wm_build_dossier_html`, `wm_free_string`
   - CLI (`wroughtmark`): `keygen`, `record`, `watch [--once]`, `seal`, `verify`, `dossier`, `handoff`, `embed`, `verify-embedded`, `c2pa-export`, `usco-manifest`, `git-sign <init|record|seal|verify>`
 
-### B. Native Desktop App (`desktop-win-linux/`)
-- Rust + `eframe`/`egui` + `rfd` native folder watcher, light/dark palette toggle, real-time `process_score`, seal mint/verify, and one-click HTML Dossier export.
+### B. Native Desktop Apps (`apple/` & `desktop-win-linux/`)
+- **macOS (`apple/`):** Native SwiftUI `MenuBarExtra` app (`WroughtmarkApp`) and Swift C-ABI FFI wrapper (`WroughtmarkKit` / `CWroughtmarkCore`) linked to `libwroughtmark_core.a` for background folder watching, Obsidian/Stone theme toggle, seal minting/verification, and printable HTML Dossier export.
+- **Windows, Linux & macOS (`desktop-win-linux/`):** Rust + `eframe`/`egui` + `rfd` native folder watcher, light/dark palette toggle, real-time `process_score`, seal mint/verify, and one-click HTML Dossier export.
 
 ### C. WebCrypto Verifier & Badge SDK (`web-sdk/`)
 - `src/verify.ts`: Pure WebCrypto `SHA-256` and `Ed25519` canonical JSON verifier, blind `TimeAnchor` check, generic `%%WROUGHTMARK_SEAL_V03` extractor, and `buildUscoManifestPayload()`.

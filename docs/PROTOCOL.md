@@ -157,7 +157,8 @@ A verifier (Rust CLI, Rust FFI / Swift / Kotlin, or browser TypeScript / WebCryp
 ```text
 wroughtmark-core/
 ├── core/                         # Rust crypto core, 9-vector assay, TimeAnchor, containers, C ABI FFI, CLI (`wroughtmark`)
-├── desktop-win-linux/            # Native Rust tray/desktop GUI (`eframe`/`egui`) for Windows & Linux
+├── apple/                        # Native macOS (`v14+`) SwiftUI MenuBarExtra desktop app (`WroughtmarkApp`) & Swift FFI (`WroughtmarkKit`)
+├── desktop-win-linux/            # Native Rust tray/desktop GUI (`eframe`/`egui`) for Windows, Linux & macOS
 ├── web-sdk/                      # Zero-dependency WebCrypto verifier (`verify.ts`) & `<wroughtmark-badge>` Web Component
 ├── browser-extension/            # Manifest V3 extension + shared zero-dep WebCrypto chain (`Google Docs`, `Canvas`, `Overleaf`, `Blackboard`)
 ├── office-addin/                 # Microsoft 365 multi-host Office.js add-in (`Word`, `Excel`, `PowerPoint`, `Outlook` + OpenXML)

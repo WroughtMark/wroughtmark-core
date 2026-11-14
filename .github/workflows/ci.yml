@@ -24,6 +24,12 @@ jobs:
         run: cargo test --manifest-path core/Cargo.toml
       - name: Test wroughtmark-desktop
         run: cargo test --manifest-path desktop-win-linux/Cargo.toml
+      - name: Build and test macOS desktop app & Swift FFI
+        if: runner.os == 'macOS'
+        run: |
+          cargo build --manifest-path core/Cargo.toml
+          swift test --package-path apple
+          swift build --package-path apple --product WroughtmarkApp
 
   web-sdk-and-plugins:
     runs-on: ubuntu-latest
