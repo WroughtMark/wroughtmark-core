@@ -1,0 +1,126 @@
+name: Release Open Core Desktop Apps & Plugins
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: oven-sh/setup-bun@v2
+      - name: Build macOS MenuBarExtra app (.dmg & .tar.gz) and CLI/desktop binaries
+        env:
+          CI: "true"
+        run: |
+          bash scripts/package.sh
+          mkdir -p upload
+          cp dist/Wroughtmark-macOS-*.dmg dist/Wroughtmark-macOS-*.tar.gz upload/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-artifacts
+          path: upload/*
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Linux GUI system deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev
+      - name: Build Linux x86_64 release bundle
+        run: |
+          cargo build --release --manifest-path core/Cargo.toml --bin wroughtmark
+          cargo build --release --manifest-path desktop-win-linux/Cargo.toml
+          mkdir -p staging upload
+          cp core/target/release/wroughtmark desktop-win-linux/target/release/wroughtmark-desktop staging/
+          tar -czf upload/wroughtmark-linux-x86_64.tar.gz -C staging wroughtmark wroughtmark-desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-artifacts
+          path: upload/*
+
+  build-windows:
+    runs-on: windows-latest
+    shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build Windows x86_64 release bundle
+        run: |
+          cargo build --release --manifest-path core/Cargo.toml --bin wroughtmark
+          cargo build --release --manifest-path desktop-win-linux/Cargo.toml
+          New-Item -ItemType Directory -Force -Path staging, upload | Out-Null
+          Copy-Item core/target/release/wroughtmark.exe staging/
+          Copy-Item desktop-win-linux/target/release/wroughtmark-desktop.exe staging/
+          Compress-Archive -Path staging/* -DestinationPath upload/wroughtmark-windows-x86_64.zip -Force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-artifacts
+          path: upload/*
+
+  build-plugins:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Build all open-core plugins & MCP bundle
+        run: |
+          mkdir -p plugins upload
+          for plugin in browser-extension office-addin google-workspace-addon skills/wroughtmark-provenance integrations/vscode integrations/obsidian integrations/figma integrations/adobe-uxp; do
+            name="$(basename "$plugin")"
+            bun run --cwd "$plugin" build >/dev/null
+            mkdir -p "plugins/$name"
+            cp -R "$plugin/dist" "plugins/$name/"
+            for meta in manifest.json manifest.xml appsscript.json SKILL.md package.json README.md; do
+              [ -f "$plugin/$meta" ] && cp "$plugin/$meta" "plugins/$name/"
+            done
+          done
+          mkdir -p plugins/blender plugins/reaper
+          cp integrations/blender/wroughtmark_blender.py plugins/blender/
+          cp integrations/reaper/wroughtmark_reaper.py plugins/reaper/
+          (cd plugins && zip -q -r ../upload/wroughtmark-plugins-bundle.zip .)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugins-artifacts
+          path: upload/*
+
+  release:
+    needs: [build-macos, build-linux, build-windows, build-plugins]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+      - name: Generate SHA-256 checksums
+        run: |
+          cd release-assets
+          sha256sum * > SHA256SUMS.txt
+          ls -lh
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Wroughtmark Core ${{ github.ref_name }}"
+          generate_release_notes: true
+          body: |
+            ## Open-Core Desktop Apps, CLI & Plugins (MIT License)
+
+            **Privacy Invariant:** Zero raw documents, audio stems, layered art, timelines, or source code ever leave your device.
+
+            ### Direct Downloads
+            - **macOS (`v14+` Apple Silicon):** `Wroughtmark-macOS-arm64.dmg` (drag `Wroughtmark.app` to Applications) or `Wroughtmark-macOS-arm64.tar.gz` (`Wroughtmark.app` MenuBarExtra + `wroughtmark-desktop` GUI + `wroughtmark` CLI)
+            - **Windows (`x86_64`):** `wroughtmark-windows-x86_64.zip` (`wroughtmark-desktop.exe` GUI + `wroughtmark.exe` CLI)
+            - **Linux (`x86_64`):** `wroughtmark-linux-x86_64.tar.gz` (`wroughtmark-desktop` GUI + `wroughtmark` CLI)
+            - **Plugins & MCP Bundle:** `wroughtmark-plugins-bundle.zip` (Browser extension, MS365 add-in, Google Workspace add-on, VS Code, Obsidian, Figma, Adobe UXP, Blender, Reaper & `wroughtmark-provenance` MCP)
+            - **Checksums:** `SHA256SUMS.txt`
+          files: release-assets/*

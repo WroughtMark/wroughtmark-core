@@ -1,5 +1,7 @@
 # Wroughtmark Core Integrations Matrix (`v0.1` -> `v0.3`)
 
+> **Direct Prebuilt Downloads:** Grab ready-to-run apps and plugins from [`GitHub Releases`](https://github.com/WroughtMark/wroughtmark-core/releases/latest): [`Wroughtmark-macOS-arm64.dmg`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg), [`wroughtmark-windows-x86_64.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip), [`wroughtmark-linux-x86_64.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-linux-x86_64.tar.gz), and [`wroughtmark-plugins-bundle.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip).
+
 Every open-core capture plugin in `wroughtmark-core` runs locally on the creator's device and shares deterministic canonical JSON + Ed25519 verification with `core/` and `web-sdk/src/verify.ts`.
 
 | Audience | Tool / Platform | Module Path | Protocol | Status |

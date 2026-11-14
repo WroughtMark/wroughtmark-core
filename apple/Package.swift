@@ -1,5 +1,9 @@
 // swift-tools-version: 6.0
+import Foundation
 import PackageDescription
+
+let coreLibDir = ProcessInfo.processInfo.environment["WROUGHTMARK_CORE_LIB_DIR"]
+    ?? "\(Context.packageDirectory)/../core/target/debug"
 
 let package = Package(
     name: "WroughtmarkKit",
@@ -28,7 +32,7 @@ let package = Package(
             path: "Sources/WroughtmarkKit",
             linkerSettings: [
                 .unsafeFlags([
-                    "-L\(Context.packageDirectory)/../core/target/debug",
+                    "-L\(coreLibDir)",
                     "-lwroughtmark_core"
                 ])
             ]
@@ -39,7 +43,7 @@ let package = Package(
             path: "Sources/WroughtmarkApp",
             linkerSettings: [
                 .unsafeFlags([
-                    "-L\(Context.packageDirectory)/../core/target/debug",
+                    "-L\(coreLibDir)",
                     "-lwroughtmark_core"
                 ])
             ]

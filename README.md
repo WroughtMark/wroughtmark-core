@@ -1,7 +1,23 @@
 # Wroughtmark Core
 
-> **Open-Source Cryptographic Proof of Human Process (Protocol `v0.1` -> `v0.3`)**  
+> **Open-Source Cryptographic Proof of Human Process (Protocol `v0.1` -> `v0.3`) · MIT License**  
 > **Privacy Invariant:** Raw creative files, manuscripts, audio stems, layered art, video timelines, and source code never leave your machine. Wroughtmark stamps local Ed25519 BLAKE3 hash chains, 9-vector behavioral telemetry counters, and offline-verifiable `WroughtmarkSeal` manifests with **0 bytes** of content uploaded.
+
+---
+
+## Download Desktop Apps, CLI & Plugins (`v0.3.0`)
+
+Prebuilt binaries and plugin bundles are published directly from this repository on [**GitHub Releases**](https://github.com/WroughtMark/wroughtmark-core/releases/latest):
+
+| Platform / Package | Included | Direct Download |
+|---|---|---|
+| **macOS (`v14+` Apple Silicon)** | Native SwiftUI `MenuBarExtra` (`Wroughtmark.app`) + `wroughtmark-desktop` GUI + `wroughtmark` CLI | [`Wroughtmark-macOS-arm64.dmg`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg) · [`.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.tar.gz) |
+| **Windows (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop.exe`) + `wroughtmark.exe` CLI | [`wroughtmark-windows-x86_64.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip) |
+| **Linux (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop`) + `wroughtmark` CLI | [`wroughtmark-linux-x86_64.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-linux-x86_64.tar.gz) |
+| **Editor, Browser & Suite Plugins** | Prebuilt bundles for Chrome/Docs/Canvas, Word/M365, Google Workspace, VS Code, Obsidian, Figma, Adobe UXP, Blender, Reaper & MCP | [`wroughtmark-plugins-bundle.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip) |
+| **SHA-256 Checksums & Release Notes** | Cryptographic digests for all release archives | [`SHA256SUMS.txt`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/SHA256SUMS.txt) · [`All Releases`](https://github.com/WroughtMark/wroughtmark-core/releases) |
+
+> Build locally from source anytime via `bash scripts/package.sh` (outputs to `dist/`).
 
 ---
 
