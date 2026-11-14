@@ -51,11 +51,11 @@ jobs:
 
   build-windows:
     runs-on: windows-latest
-    shell: pwsh
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - name: Build Windows x86_64 release bundle
+        shell: pwsh
         run: |
           cargo build --release --manifest-path core/Cargo.toml --bin wroughtmark
           cargo build --release --manifest-path desktop-win-linux/Cargo.toml
