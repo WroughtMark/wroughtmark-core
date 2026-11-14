@@ -1,0 +1,9 @@
+{
+  "id": "wroughtmark-obsidian",
+  "name": "Wroughtmark Provenance",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Local-first human-origin provenance recorder for Obsidian vaults and research notes.",
+  "author": "Wroughtmark",
+  "isDesktopOnly": false
+}

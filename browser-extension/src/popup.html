@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Wroughtmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --ink: #0F1218;
+      --dim: #6E7686;
+      --border: #171A21;
+      --brass: #9D6616;
+      --ok: #0F6E43;
+      --btn-bg: #0F1218;
+      --btn-ink: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090A0D;
+        --surface: #111318;
+        --ink: #F2F4F8;
+        --dim: #6D7586;
+        --border: #2C3240;
+        --brass: #E2AC55;
+        --ok: #34D399;
+        --btn-bg: #F2F4F8;
+        --btn-ink: #090A0D;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      width: 336px;
+      margin: 0;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      position: relative;
+    }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .kicker {
+      color: var(--brass);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .reg {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--dim);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+    h1 em { font-style: normal; color: var(--brass); font-weight: 600; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px;
+      margin-bottom: 12px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      font-variant-numeric: tabular-nums;
+    }
+    .ok { color: var(--ok); }
+    .warn { color: var(--brass); }
+    button {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      background: var(--btn-bg);
+      color: var(--btn-ink);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--brass); border-color: var(--brass); color: #090A0D; }
+    button.ghost { background: transparent; color: var(--ink); }
+    button.ghost:hover { background: var(--ink); color: var(--bg); }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="top">
+    <span class="kicker">Wroughtmark // Assay</span>
+    <span class="reg">+ REG EXT</span>
+  </div>
+  <h1>Browser Draft <em>Ledger</em></h1>
+  <div id="stats" class="card">Loading local process chain...</div>
+  <button id="exportSealBtn" type="button">Export Seal (.seal.json)</button>
+  <button id="resetBtn" class="ghost" type="button">Reset Local Chain</button>
+  <script type="module" src="../dist/popup.js"></script>
+</body>
+</html>

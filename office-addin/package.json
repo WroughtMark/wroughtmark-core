@@ -1,0 +1,10 @@
+{
+  "name": "wroughtmark-office-addin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/taskpane.ts --outdir dist --target browser",
+    "test": "bun test"
+  }
+}

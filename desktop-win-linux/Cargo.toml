@@ -1,0 +1,13 @@
+[package]
+name = "wroughtmark-desktop"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-platform native Rust desktop app for Windows and Linux (and macOS)"
+license = "MIT"
+
+[dependencies]
+eframe = "0.29"
+rfd = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+wroughtmark-core = { path = "../core" }

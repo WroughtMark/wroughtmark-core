@@ -1,0 +1,11 @@
+{
+  "name": "Wroughtmark Provenance",
+  "id": "wroughtmark-figma-plugin",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "src/ui.html",
+  "editorType": ["figma", "figjam"],
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}

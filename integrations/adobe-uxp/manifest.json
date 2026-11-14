@@ -1,0 +1,18 @@
+{
+  "manifestVersion": 5,
+  "id": "com.wroughtmark.uxp",
+  "name": "Wroughtmark Provenance",
+  "version": "0.1.0",
+  "main": "dist/panel.js",
+  "host": [
+    { "app": "PS", "minVersion": "24.0.0" },
+    { "app": "PR", "minVersion": "24.0.0" }
+  ],
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "wroughtmarkPanel",
+      "label": { "default": "Wroughtmark Provenance" }
+    }
+  ]
+}

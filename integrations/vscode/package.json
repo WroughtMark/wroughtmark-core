@@ -1,0 +1,21 @@
+{
+  "name": "wroughtmark-vscode",
+  "displayName": "Wroughtmark Provenance",
+  "description": "Local-first human-origin provenance recorder for Markdown, LaTeX, and code in VS Code.",
+  "version": "0.1.0",
+  "publisher": "wroughtmark",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "wroughtmark.exportSeal", "title": "Wroughtmark: Export Seal (.seal.json)" },
+      { "command": "wroughtmark.resetChain", "title": "Wroughtmark: Reset Local Process Chain" }
+    ]
+  },
+  "scripts": {
+    "build": "bun build src/extension.ts --outdir dist --target node --external vscode",
+    "test": "bun test"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "timeZone": "Etc/UTC",
+  "runtimeVersion": "V8",
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/documents.currentonly",
+    "https://www.googleapis.com/auth/spreadsheets.currentonly",
+    "https://www.googleapis.com/auth/presentations.currentonly",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/gmail.addons.current.message.metadata"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Wroughtmark Provenance",
+      "logoUrl": "https://wroughtmark.com/brand/wroughtmark-logo-mark.png",
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      }
+    },
+    "docs": {
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      }
+    },
+    "sheets": {
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      }
+    },
+    "slides": {
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      }
+    },
+    "drive": {
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      },
+      "onItemsSelectedTrigger": {
+        "runFunction": "onDriveItemsSelected"
+      }
+    },
+    "gmail": {
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "onGmailMessageOpen"
+        }
+      ]
+    }
+  }
+}

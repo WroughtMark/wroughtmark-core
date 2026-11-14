@@ -1,0 +1,27 @@
+# Rust
+target/
+Cargo.lock
+
+# Swift
+.build/
+.swiftpm/
+
+# Bun / Node
+node_modules/
+dist/
+
+# Wroughtmark local runtime state & keys
+*.key.json
+*.chain.json
+*.state.json
+*.seal.json
+
+# OS
+.DS_Store
+browser-extension/dist/
+office-addin/dist/
+integrations/vscode/dist/
+integrations/figma/dist/
+integrations/adobe-uxp/dist/
+__pycache__/
+integrations/obsidian/dist/

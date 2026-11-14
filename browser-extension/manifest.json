@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Wroughtmark — Local Human-Origin Provenance",
+  "version": "0.1.0",
+  "description": "Privacy-first process provenance recorder for Google Docs, Canvas, Overleaf, and web editors. Zero raw text leaves your browser.",
+  "permissions": ["storage", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/*",
+        "https://www.overleaf.com/*",
+        "https://*.instructure.com/*",
+        "https://*.blackboard.com/*",
+        "http://localhost/*"
+      ],
+      "js": ["dist/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Wroughtmark Provenance",
+    "default_popup": "src/popup.html"
+  }
+}

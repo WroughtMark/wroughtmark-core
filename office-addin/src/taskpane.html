@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Wroughtmark for Microsoft 365</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --ink: #0F1218;
+      --dim: #6E7686;
+      --border: #171A21;
+      --brass: #9D6616;
+      --ok: #0F6E43;
+      --btn-bg: #0F1218;
+      --btn-ink: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090A0D;
+        --surface: #111318;
+        --ink: #F2F4F8;
+        --dim: #6D7586;
+        --border: #2C3240;
+        --brass: #E2AC55;
+        --ok: #34D399;
+        --btn-bg: #F2F4F8;
+        --btn-ink: #090A0D;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .kicker {
+      color: var(--brass);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .reg {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--dim);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+    h1 em { font-style: normal; color: var(--brass); font-weight: 600; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px;
+      margin-bottom: 12px;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      line-height: 1.5;
+      font-variant-numeric: tabular-nums;
+    }
+    .ok { color: var(--ok); }
+    .warn { color: var(--brass); }
+    button {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      background: var(--btn-bg);
+      color: var(--btn-ink);
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--brass); border-color: var(--brass); color: #090A0D; }
+    button.ghost { background: transparent; color: var(--ink); }
+    button.ghost:hover { background: var(--ink); color: var(--bg); }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <span class="kicker">Wroughtmark // M365 Suite Assay</span>
+    <span class="reg">+ WORD · EXCEL · PPT · OUTLOOK</span>
+  </div>
+  <h1>Microsoft 365 <em>Ledger</em></h1>
+  <div class="card">
+    <label for="hostSelect">M365 Host:</label>
+    <select id="hostSelect" style="width:100%;margin:4px 0 8px;padding:6px;">
+      <option value="word">Word (Document / Track Changes)</option>
+      <option value="excel">Excel (Workbook / Formulas)</option>
+      <option value="powerpoint">PowerPoint (Presentation)</option>
+      <option value="outlook">Outlook (Mailbox Sign-off)</option>
+    </select>
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+      <input id="copilotToggle" type="checkbox" /> M365 Copilot assistance disclosed
+    </label>
+  </div>
+  <div id="stats" class="card">Waiting for Microsoft 365 heartbeat...</div>
+  <button id="sampleBtn" type="button">Record Heartbeat Now</button>
+  <button id="exportSealBtn" type="button">Export Seal (.seal.json)</button>
+  <button id="exportCustomXmlBtn" type="button">Export OpenXML customXml Part</button>
+  <button id="resetBtn" class="ghost" type="button">Reset Local Chain</button>
+  <script type="module" src="../dist/taskpane.js"></script>
+</body>
+</html>

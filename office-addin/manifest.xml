@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+  <Id>9c6b4d2e-7b1f-4e6a-9a34-2e1f8c4d9011</Id>
+  <Version>0.1.0.0</Version>
+  <ProviderName>Wroughtmark</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Wroughtmark Provenance — Microsoft 365 Suite" />
+  <Description DefaultValue="Local-first human-origin provenance recorder and OpenXML customXml embedder for Word, Excel, PowerPoint, Outlook, and M365 Copilot disclosures." />
+  <Hosts>
+    <Host Name="Document" />
+    <Host Name="Workbook" />
+    <Host Name="Presentation" />
+    <Host Name="Mailbox" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3434/office-addin/taskpane.html" />
+  </DefaultSettings>
+  <Permissions>ReadDocument</Permissions>
+</OfficeApp>

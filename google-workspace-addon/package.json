@@ -1,0 +1,10 @@
+{
+  "name": "wroughtmark-google-workspace-addon",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/addon.ts --outdir dist --target browser",
+    "test": "bun test"
+  }
+}
