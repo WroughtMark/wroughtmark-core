@@ -9,15 +9,38 @@
 
 Prebuilt binaries and plugin bundles are published directly from this repository on [**GitHub Releases**](https://github.com/WroughtMark/wroughtmark-core/releases/latest):
 
-| Platform / Package | Included | Direct Download |
-|---|---|---|
-| **macOS (`v14+` Apple Silicon)** | Native SwiftUI `MenuBarExtra` (`Wroughtmark.app`) + `wroughtmark-desktop` GUI + `wroughtmark` CLI | [`Wroughtmark-macOS-arm64.dmg`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg) · [`.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.tar.gz) |
-| **Windows (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop.exe`) + `wroughtmark.exe` CLI | [`wroughtmark-windows-x86_64.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip) |
-| **Linux (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop`) + `wroughtmark` CLI | [`wroughtmark-linux-x86_64.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-linux-x86_64.tar.gz) |
-| **Editor, Browser & Suite Plugins** | Prebuilt bundles for Chrome/Docs/Canvas, Word/M365, Google Workspace, VS Code, Obsidian, Figma, Adobe UXP, Blender, Reaper & MCP | [`wroughtmark-plugins-bundle.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip) |
-| **SHA-256 Checksums & Release Notes** | Cryptographic digests for all release archives | [`SHA256SUMS.txt`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/SHA256SUMS.txt) · [`All Releases`](https://github.com/WroughtMark/wroughtmark-core/releases) |
+| Platform / Package | Included | Verification & VirusTotal | Direct Download |
+|---|---|---|---|
+| **macOS (`v14+` Apple Silicon)** | Native SwiftUI `MenuBarExtra` (`Wroughtmark.app`) + `wroughtmark-desktop` GUI + `wroughtmark` CLI | Apple Developer ID Signed & Notarized (`HL4S9RXPF6`) · `.dmg` `a44eeebe8559...` ([VirusTotal](https://www.virustotal.com/gui/file/a44eeebe8559cd671b178926fb8df4a74406b9736fb407cdac5a12855223c53d)) · `.tar.gz` `9d77ee433109...` ([VirusTotal](https://www.virustotal.com/gui/file/9d77ee4331094abe829312c3d604335175cdedd0cc5768546f699c7ed45b0f41)) | [`Wroughtmark-macOS-arm64.dmg`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg) · [`.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.tar.gz) |
+| **Windows (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop.exe`) + `wroughtmark.exe` CLI | SHA-256 + VirusTotal Verified · `b1e3264396b1...` ([VirusTotal Report](https://www.virustotal.com/gui/file/b1e3264396b18f262f2264a4711a188940713656c921dea710fd1a827582e78f)) | [`wroughtmark-windows-x86_64.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip) |
+| **Linux (`x86_64`)** | Native Rust `eframe` Desktop GUI (`wroughtmark-desktop`) + `wroughtmark` CLI | SHA-256 + VirusTotal Verified · `aba4083224d9...` ([VirusTotal Report](https://www.virustotal.com/gui/file/aba4083224d97b42d23afe1817c59019258875b0b353a16a4e6f2080b301f3ff)) | [`wroughtmark-linux-x86_64.tar.gz`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-linux-x86_64.tar.gz) |
+| **Editor, Browser & Suite Plugins** | Prebuilt bundles for Chrome/Docs/Canvas, Word/M365, Google Workspace, VS Code, Obsidian, Figma, Adobe UXP, Blender, Reaper & MCP | SHA-256 + VirusTotal Verified · `14b84d470f3a...` ([VirusTotal Report](https://www.virustotal.com/gui/file/14b84d470f3a255aaf37a785db1aac70646fe91fc49750c1cefb9733fae460e1)) | [`wroughtmark-plugins-bundle.zip`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip) |
+| **SHA-256 Checksums & Release Notes** | Cryptographic digests for all release archives | [`SHA256SUMS.txt`](https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/SHA256SUMS.txt) | [`All Releases`](https://github.com/WroughtMark/wroughtmark-core/releases) |
 
-> Build locally from source anytime via `bash scripts/package.sh` (outputs to `dist/`).
+<details>
+<summary>Verify downloaded archive SHA-256 checksums (<code>v0.3.0</code>)</summary>
+
+```text
+a44eeebe8559cd671b178926fb8df4a74406b9736fb407cdac5a12855223c53d  Wroughtmark-macOS-arm64.dmg
+9d77ee4331094abe829312c3d604335175cdedd0cc5768546f699c7ed45b0f41  Wroughtmark-macOS-arm64.tar.gz
+b1e3264396b18f262f2264a4711a188940713656c921dea710fd1a827582e78f  wroughtmark-windows-x86_64.zip
+aba4083224d97b42d23afe1817c59019258875b0b353a16a4e6f2080b301f3ff  wroughtmark-linux-x86_64.tar.gz
+14b84d470f3a255aaf37a785db1aac70646fe91fc49750c1cefb9733fae460e1  wroughtmark-plugins-bundle.zip
+```
+
+```bash
+# macOS / Linux
+shasum -a 256 -c SHA256SUMS.txt
+```
+
+```powershell
+# Windows PowerShell
+Get-FileHash .\wroughtmark-windows-x86_64.zip -Algorithm SHA256
+```
+
+</details>
+
+> Build locally from source anytime via `bash scripts/package.sh` (outputs to `dist/`). Windows and Linux release archives are built deterministically in GitHub Actions and ship with public SHA-256 digests and VirusTotal scan links; if Windows SmartScreen prompts on first run, verify the SHA-256 hash above and choose **More info -> Run anyway**.
 
 ---
 

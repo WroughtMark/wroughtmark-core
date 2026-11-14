@@ -80,16 +80,48 @@ if [ "$OS_NAME" = "Darwin" ] && command -v swift >/dev/null 2>&1; then
 EOF
 
   MAC_TAG="macOS-${ARCH_NAME}"
+  SIGN_IDENTITY="${CODESIGN_IDENTITY:-}"
+  if [ -z "$SIGN_IDENTITY" ] && command -v security >/dev/null 2>&1; then
+    SIGN_IDENTITY="$(security find-identity -v -p codesigning 2>/dev/null | grep 'Developer ID Application:' | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/' || true)"
+  fi
+
+  if [ -n "$SIGN_IDENTITY" ]; then
+    echo "==> Signing macOS binaries & Wroughtmark.app with: $SIGN_IDENTITY"
+    codesign --force --options runtime --timestamp -s "$SIGN_IDENTITY" "$DIST/bin/wroughtmark"
+    codesign --force --options runtime --timestamp -s "$SIGN_IDENTITY" "$DIST/bin/wroughtmark-desktop"
+    codesign --force --options runtime --timestamp -s "$SIGN_IDENTITY" "$APP_BUNDLE/Contents/Resources/wroughtmark"
+    codesign --force --options runtime --timestamp -s "$SIGN_IDENTITY" "$APP_BUNDLE/Contents/MacOS/WroughtmarkApp"
+    codesign --force --options runtime --timestamp -s "$SIGN_IDENTITY" "$APP_BUNDLE"
+    codesign --verify --deep --strict --verbose=2 "$APP_BUNDLE"
+  fi
+
   DMG_STAGE="$DIST/dmg-stage"
   rm -rf "$DMG_STAGE"
   mkdir -p "$DMG_STAGE/bin"
   cp -R "$APP_BUNDLE" "$DMG_STAGE/Wroughtmark.app"
-  cp "$CLI_BIN" "$GUI_BIN" "$DMG_STAGE/bin/"
+  cp "$DIST/bin/wroughtmark" "$DIST/bin/wroughtmark-desktop" "$DMG_STAGE/bin/"
   ln -s /Applications "$DMG_STAGE/Applications"
 
   tar -czf "$DIST/Wroughtmark-${MAC_TAG}.tar.gz" -C "$DIST" Wroughtmark.app -C "$DIST/bin" wroughtmark wroughtmark-desktop
   if command -v hdiutil >/dev/null 2>&1; then
     hdiutil create -volname "Wroughtmark ${VERSION}" -srcfolder "$DMG_STAGE" -ov -format UDZO "$DIST/Wroughtmark-${MAC_TAG}.dmg" >/dev/null
+    if [ -n "$SIGN_IDENTITY" ]; then
+      codesign --force --timestamp -s "$SIGN_IDENTITY" "$DIST/Wroughtmark-${MAC_TAG}.dmg"
+      if [ "${WROUGHTMARK_NOTARIZE:-0}" = "1" ]; then
+        NOTARY_KEY="${APPLE_NOTARY_KEY_PATH:-$HOME/.appstoreconnect/private_keys/AuthKey_9Q39C88796.p8}"
+        NOTARY_KEY_ID="${APPLE_NOTARY_KEY_ID:-9Q39C88796}"
+        NOTARY_ISSUER="${APPLE_NOTARY_ISSUER_ID:-e8535082-7b35-4e09-b94a-73569c0b3d5b}"
+        echo "==> Notarizing DMG with Apple notarytool (key $NOTARY_KEY_ID)"
+        xcrun notarytool submit "$DIST/Wroughtmark-${MAC_TAG}.dmg" \
+          --key "$NOTARY_KEY" \
+          --key-id "$NOTARY_KEY_ID" \
+          --issuer "$NOTARY_ISSUER" \
+          --wait
+        xcrun stapler staple "$APP_BUNDLE"
+        xcrun stapler staple "$DIST/Wroughtmark-${MAC_TAG}.dmg"
+        tar -czf "$DIST/Wroughtmark-${MAC_TAG}.tar.gz" -C "$DIST" Wroughtmark.app -C "$DIST/bin" wroughtmark wroughtmark-desktop
+      fi
+    fi
   fi
   rm -rf "$DMG_STAGE"
 elif [ "$OS_NAME" = "Linux" ]; then

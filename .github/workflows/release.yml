@@ -102,25 +102,46 @@ jobs:
         with:
           path: release-assets
           merge-multiple: true
-      - name: Generate SHA-256 checksums
+      - name: Generate SHA-256 checksums & release notes
         run: |
           cd release-assets
           sha256sum * > SHA256SUMS.txt
           ls -lh
+          {
+            cat <<'EOF'
+          ## Open-Core Desktop Apps, CLI & Plugins (MIT License)
+
+          **Privacy Invariant:** Zero raw documents, audio stems, layered art, timelines, or source code ever leave your device.
+
+          ### Direct Downloads & Verification
+          | File | SHA-256 Digest | VirusTotal Report |
+          |---|---|---|
+          EOF
+            while read -r hash file; do
+              [ "$file" = "SHA256SUMS.txt" ] && continue
+              printf '| [`%s`](https://github.com/WroughtMark/wroughtmark-core/releases/download/%s/%s) | `%s` | [VirusTotal Report](https://www.virustotal.com/gui/file/%s) |\n' \
+                "$file" "${GITHUB_REF_NAME}" "$file" "$hash" "$hash"
+            done < SHA256SUMS.txt
+            cat <<'EOF'
+
+          ### Verify Checksums
+          ```bash
+          # macOS / Linux
+          shasum -a 256 -c SHA256SUMS.txt
+          ```
+
+          ```powershell
+          # Windows PowerShell
+          Get-FileHash .\wroughtmark-windows-x86_64.zip -Algorithm SHA256
+          ```
+
+          > macOS builds signed locally with Developer ID (`HL4S9RXPF6`) are notarized by Apple Notary Service; Windows and Linux CI builds ship with SHA-256 digests and VirusTotal links above (if Windows SmartScreen prompts, verify the hash and choose **More info -> Run anyway**).
+          EOF
+          } > /tmp/release-body.md
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           name: "Wroughtmark Core ${{ github.ref_name }}"
           generate_release_notes: true
-          body: |
-            ## Open-Core Desktop Apps, CLI & Plugins (MIT License)
-
-            **Privacy Invariant:** Zero raw documents, audio stems, layered art, timelines, or source code ever leave your device.
-
-            ### Direct Downloads
-            - **macOS (`v14+` Apple Silicon):** `Wroughtmark-macOS-arm64.dmg` (drag `Wroughtmark.app` to Applications) or `Wroughtmark-macOS-arm64.tar.gz` (`Wroughtmark.app` MenuBarExtra + `wroughtmark-desktop` GUI + `wroughtmark` CLI)
-            - **Windows (`x86_64`):** `wroughtmark-windows-x86_64.zip` (`wroughtmark-desktop.exe` GUI + `wroughtmark.exe` CLI)
-            - **Linux (`x86_64`):** `wroughtmark-linux-x86_64.tar.gz` (`wroughtmark-desktop` GUI + `wroughtmark` CLI)
-            - **Plugins & MCP Bundle:** `wroughtmark-plugins-bundle.zip` (Browser extension, MS365 add-in, Google Workspace add-on, VS Code, Obsidian, Figma, Adobe UXP, Blender, Reaper & `wroughtmark-provenance` MCP)
-            - **Checksums:** `SHA256SUMS.txt`
+          body_path: /tmp/release-body.md
           files: release-assets/*
