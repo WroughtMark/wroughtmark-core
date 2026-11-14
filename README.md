@@ -82,4 +82,4 @@ cargo build --manifest-path core/Cargo.toml --bin wroughtmark
 - [Tech Stack & Architecture Map](docs/TECH_STACK.md)
 - [Open-Core Integrations Matrix](docs/INTEGRATIONS.md)
 - [Agent Skill & MCP Tool Spec (`wroughtmark-provenance`)](skills/wroughtmark-provenance/SKILL.md)
-- [MIT License](LICENSE)
+- [MIT License](LICENSE) — Copyright &copy; 2026 Crampton IT Solutions
