@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="wm-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2B75B"/>
+      <stop offset="50%" stop-color="#C99738"/>
+      <stop offset="100%" stop-color="#9D6616"/>
+    </linearGradient>
+    <linearGradient id="wm-bg-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181B22"/>
+      <stop offset="100%" stop-color="#08090C"/>
+    </linearGradient>
+    <linearGradient id="wm-bg-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E8E8E2"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .bg { fill: url(#wm-bg-dark); stroke: #C99738; stroke-width: 2; }
+    .mark { fill: url(#wm-gold); }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: url(#wm-bg-light); stroke: #9D6616; stroke-width: 2; }
+      .mark { fill: #7A4E0E; }
+    }
+  </style>
+  <rect class="bg" x="3" y="3" width="58" height="58" rx="14" />
+  <path class="mark" d="M14 20 L20 20 L25 36 L29 20 L35 20 L39 36 L44 20 L50 20 L42.5 44 L36.5 44 L32 29.5 L27.5 44 L21.5 44 Z" />
+</svg>
