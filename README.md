@@ -83,3 +83,14 @@ cargo build --manifest-path core/Cargo.toml --bin wroughtmark
 - [Open-Core Integrations Matrix](docs/INTEGRATIONS.md)
 - [Agent Skill & MCP Tool Spec (`wroughtmark-provenance`)](skills/wroughtmark-provenance/SKILL.md)
 - [MIT License](LICENSE) — Copyright &copy; 2026 Crampton IT Solutions
+
+---
+
+## Contact & Attribution
+
+- **General Inquiries & Institutional Pilots:** [hello@wroughtmark.com](mailto:hello@wroughtmark.com)
+- **Security & Data Privacy:** [privacy@wroughtmark.com](mailto:privacy@wroughtmark.com)
+- **Legal & Governance:** [legal@cramptonit.solutions](mailto:legal@cramptonit.solutions)
+- **Corporate Attribution:** Wroughtmark is engineered and maintained by **Crampton IT Solutions** (Illawarra, New South Wales, Australia).
+- **Public Core Repository:** [GitHub WroughtMark/wroughtmark-core](https://github.com/WroughtMark/wroughtmark-core)
+

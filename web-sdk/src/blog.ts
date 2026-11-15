@@ -916,7 +916,7 @@ export function renderBlogIndexHtml(options?: { theme?: string }): string {
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a></p>
+    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a> &bull; <a href="mailto:hello@wroughtmark.com">hello@wroughtmark.com</a></p>
   </footer>
 
   ${COMMON_SCRIPT}
@@ -1007,7 +1007,7 @@ export function renderBlogPostHtml(slug: string, options?: { theme?: string }): 
   </article>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/blog">Dispatches Index</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a></p>
+    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/blog">Dispatches Index</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a> &bull; <a href="mailto:hello@wroughtmark.com">hello@wroughtmark.com</a></p>
   </footer>
 
   ${COMMON_SCRIPT}

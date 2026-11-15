@@ -1199,6 +1199,7 @@ const HTML = `<!doctype html>
           <a href="#instrument">Console</a>
           <a href="#specimens">Specimens</a>
           <a href="#licensing">Licensing</a>
+          <a href="#contact">Contact</a>
           <a href="/blog">Dispatches</a>
         </nav>
         <button id="themeToggleBtn" class="theme-switch" type="button" aria-label="Toggle light or dark theme">
@@ -1906,12 +1907,60 @@ const HTML = `<!doctype html>
     </div>
   </section>
 
+  <!-- Band 3.75: Direct Inquiries & Foundry Communications -->
+  <section class="specimen-band" id="contact">
+    <div class="specimen-head">
+      <div>
+        <span class="eyebrow">Direct Contact // Foundry Communications &amp; Institutional Partnerships</span>
+      </div>
+      <span class="reg-mark">RESPONSE WITHIN 24 HOURS</span>
+    </div>
+
+    <div class="cap-grid-3" style="margin-top:20px;">
+      <article class="cap-card">
+        <div>
+          <div class="cap-kicker">DIRECT EMAIL // INQUIRIES &amp; ASSISTANCE</div>
+          <h3 class="cap-title">hello@wroughtmark.com</h3>
+          <p class="cap-desc">Direct line for technical inquiries, integration pilots, university compliance trials, security audits, and creator licensing.</p>
+        </div>
+        <div class="cap-meta" style="margin-top:16px;">
+          <a class="btn btn-primary" href="mailto:hello@wroughtmark.com" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+            <span>Email hello@wroughtmark.com</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="cap-card">
+        <div>
+          <div class="cap-kicker">OPEN SOURCE // GITHUB COMMUNITY</div>
+          <h3 class="cap-title">Public Repositories &amp; Discussions</h3>
+          <p class="cap-desc">Track protocol development, inspect RFCs, submit pull requests, or file issues in our public GitHub repositories.</p>
+        </div>
+        <div class="cap-meta" style="margin-top:16px;">
+          <a class="btn btn-ghost" href="https://github.com/WroughtMark/wroughtmark-core" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+            <span>GitHub: WroughtMark/wroughtmark-core</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="cap-card">
+        <div>
+          <div class="cap-kicker">CORPORATE ATTRIBUTION // ILLAWARRA, AUSTRALIA</div>
+          <h3 class="cap-title">Crampton IT Solutions</h3>
+          <p class="cap-desc">Wroughtmark is developed and maintained by Crampton IT Solutions. Based in the Illawarra region of New South Wales, Australia.</p>
+        </div>
+        <div class="cap-meta" style="margin-top:16px;">ABN &amp; institutional enterprise SLA agreements available upon request.</div>
+      </article>
+    </div>
+  </section>
+
   <!-- Footer & Privacy Controls -->
   <section class="colophon-band" id="colophon">
     <footer>
       <div class="footer-left">
-        <div>wroughtmark.com · Kinetic Assay Foundry · Open Protocol v0.3 · <a href="/blog" style="color:var(--brass);text-decoration:none;">Dispatches &amp; Guides</a></div>
-        <div style="margin-top:4px;color:var(--dim);font-size:10px;letter-spacing:0.04em;">&copy; 2026 Crampton IT Solutions. All rights reserved. Core suite licensed under MIT. · <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:inherit;text-decoration:underline;">Terms of Use</a></div>
+        <div>wroughtmark.com · Kinetic Assay Foundry · Open Protocol v0.3 · <a href="/blog" style="color:var(--brass);text-decoration:none;">Dispatches &amp; Guides</a> · <a href="mailto:hello@wroughtmark.com" style="color:var(--brass);text-decoration:none;">hello@wroughtmark.com</a></div>
+        <div style="margin-top:4px;color:var(--dim);font-size:10px;letter-spacing:0.04em;">&copy; 2026 Crampton IT Solutions. All rights reserved. Core suite licensed under MIT. · <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:inherit;text-decoration:underline;">Terms of Use</a> · <a href="#contact" style="color:inherit;text-decoration:underline;">Contact</a></div>
       </div>
       <div class="footer-right">
         <span>Rust Core · Swift · Kotlin · Meta Display HUD · TypeScript SDK</span>

@@ -443,7 +443,7 @@ export function renderPrivacyPolicyHtml(options?: { theme?: string }): string {
         <p><strong>Crampton IT Solutions</strong><br />
         Attn: Privacy &amp; Data Governance<br />
         Illawarra, New South Wales, Australia<br />
-        Email: <code>privacy@wroughtmark.com</code> or <code>legal@cramptonit.solutions</code></p>
+        Email: <code>hello@wroughtmark.com</code>, <code>privacy@wroughtmark.com</code>, or <code>legal@cramptonit.solutions</code></p>
       </div>
     </div>
 
@@ -454,7 +454,7 @@ export function renderPrivacyPolicyHtml(options?: { theme?: string }): string {
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a></p>
+    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a> &bull; <a href="mailto:hello@wroughtmark.com">hello@wroughtmark.com</a></p>
   </footer>
 
   ${COMMON_SCRIPT}
@@ -559,7 +559,7 @@ export function renderTermsOfUseHtml(options?: { theme?: string }): string {
         <div class="callout-title">Legal Contact</div>
         <p><strong>Crampton IT Solutions</strong><br />
         Illawarra, New South Wales, Australia<br />
-        Inquiries: <code>legal@cramptonit.solutions</code></p>
+        Inquiries: <code>hello@wroughtmark.com</code> or <code>legal@cramptonit.solutions</code></p>
       </div>
     </div>
 
@@ -570,7 +570,7 @@ export function renderTermsOfUseHtml(options?: { theme?: string }): string {
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a></p>
+    <p>&copy; 2026 Crampton IT Solutions &bull; Wroughtmark Open Core released under MIT License &bull; 0 Bytes Transmitted &bull; <a href="/">Return to Console</a> &bull; <a href="/blog">Dispatches</a> &bull; <a href="/privacy">Privacy Policy</a> &bull; <a href="/terms">Terms of Use</a> &bull; <a href="mailto:hello@wroughtmark.com">hello@wroughtmark.com</a></p>
   </footer>
 
   ${COMMON_SCRIPT}
