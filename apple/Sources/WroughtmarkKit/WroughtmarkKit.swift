@@ -27,6 +27,39 @@ public enum WroughtmarkVerifier {
         }
     }
 
+    /// Mint a portable WroughtmarkSeal JSON for a mobile/wearable physical co-sign capture.
+    public static func mintPhysicalSeal(
+        capture: Data,
+        projectID: String,
+        discipline: String = "film",
+        deviceLabel: String = "watchos-secure-enclave",
+        timestampUTC: String = "2026-11-15T00:00:00Z"
+    ) -> String? {
+        capture.withUnsafeBytes { rawBuffer in
+            let ptr = rawBuffer.bindMemory(to: UInt8.self).baseAddress
+            return projectID.withCString { projPtr in
+                discipline.withCString { discPtr in
+                    deviceLabel.withCString { devPtr in
+                        timestampUTC.withCString { tsPtr in
+                            guard let cStr = wm_mint_physical_seal_json(
+                                ptr,
+                                capture.count,
+                                projPtr,
+                                discPtr,
+                                devPtr,
+                                tsPtr
+                            ) else {
+                                return nil
+                            }
+                            defer { wm_free_string(cStr) }
+                            return String(cString: cStr)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     /// Verify a `WroughtmarkSeal` JSON payload against exported deliverable bytes.
     public static func verify(
         output: Data,

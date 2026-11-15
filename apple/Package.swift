@@ -8,7 +8,10 @@ let coreLibDir = ProcessInfo.processInfo.environment["WROUGHTMARK_CORE_LIB_DIR"]
 let package = Package(
     name: "WroughtmarkKit",
     platforms: [
-        .macOS(.v14)
+        .macOS(.v14),
+        .iOS(.v17),
+        .watchOS(.v10),
+        .visionOS(.v2)
     ],
     products: [
         .library(
