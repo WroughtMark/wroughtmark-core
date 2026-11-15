@@ -25,3 +25,11 @@ integrations/figma/dist/
 integrations/adobe-uxp/dist/
 __pycache__/
 integrations/obsidian/dist/
+
+# Private internal operations, credentials, and keystores
+.internal/
+*.jks
+*.keystore
+*.mobileprovision
+*.cer
+*.p12

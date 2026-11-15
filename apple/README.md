@@ -16,6 +16,6 @@ Native Swift client, Menu Bar companion, and iOS/visionOS application powered by
   - `screen2_slate_1290x2796.png`: Studio Clapper & Acoustic Room Tone witness.
   - `screen3_verify_1290x2796.png`: Air-Gapped Offline Seal Verifier.
 
-## TestFlight & App Store Submission
+## Building for iOS & macOS
 
-See `../docs/STORE_SUBMISSION_CHECKLIST.md` for complete distribution and archive steps.
+Open `Package.swift` in Xcode or configure team code signing in your target's Signing & Capabilities tab.

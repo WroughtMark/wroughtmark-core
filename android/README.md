@@ -30,7 +30,7 @@ Kotlin/Jetpack Compose client, phone application, and Wear OS biometric co-signe
 # Build debug APK
 ./gradlew :app:assembleDebug
 
-# Build release Android App Bundle (AAB) for Google Play Console
+# Build release Android App Bundle (AAB)
 ./gradlew :app:bundleRelease
 ```
-See `../docs/STORE_SUBMISSION_CHECKLIST.md` for step-by-step submission instructions.
+Configure your release signing keystore in `app/build.gradle.kts`.
