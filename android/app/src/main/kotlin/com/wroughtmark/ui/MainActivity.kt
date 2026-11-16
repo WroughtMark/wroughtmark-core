@@ -202,7 +202,7 @@ fun WroughtmarkAppScreen(controller: WroughtmarkMobileController) {
                                             fontWeight = FontWeight.Bold
                                         )
                                         Text(
-                                            text = ev.note,
+                                            text = ev.note ?: "",
                                             color = mutedColor,
                                             fontSize = 11.sp
                                         )
@@ -263,7 +263,7 @@ fun WroughtmarkAppScreen(controller: WroughtmarkMobileController) {
                             Button(
                                 onClick = {
                                     controller.stampPhysicalCapture(
-                                        PhysicalCaptureKind.AUDIO_ROOM_TONE_5S,
+                                        PhysicalCaptureKind.ROOM_TONE_AUDIO,
                                         "5s Room Tone Studio Slate"
                                     )
                                     eventCount = controller.events.size
