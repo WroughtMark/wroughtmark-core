@@ -5,6 +5,7 @@ Cargo.lock
 # Swift
 .build/
 .swiftpm/
+*.xcframework/
 
 # Bun / Node
 node_modules/

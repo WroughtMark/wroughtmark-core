@@ -159,55 +159,61 @@ public struct WroughtmarkMobileAppView: View {
     }
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Top bar with Dark / Light switch
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("WROUGHTMARK // \(deviceType.rawValue.uppercased())")
-                        .font(.caption2.monospaced().bold())
-                        .foregroundStyle(p.brass)
-                    Text("Mobile Hardware Co-Signer")
-                        .font(.system(.title3, design: .default).weight(.bold))
-                        .foregroundStyle(p.ink)
-                }
-                Spacer()
-                Button(isDark ? "DARK" : "LIGHT") {
-                    isDark.toggle()
-                }
-                .padding(.vertical, 5)
-                .padding(.horizontal, 10)
-                .background(p.surface)
-                .foregroundStyle(p.ink)
-                .overlay(Rectangle().stroke(p.border, lineWidth: 1))
-                .font(.caption2.monospaced().bold())
-            }
+        ZStack {
+            p.bg.ignoresSafeArea()
 
-            // 3-Tab Segmented Selector
-            HStack(spacing: 6) {
-                ForEach(MobileTab.allCases, id: \.self) { tab in
-                    Button(tab.rawValue) {
-                        activeTab = tab
+            VStack(alignment: .leading, spacing: 12) {
+                // Top bar with Dark / Light switch
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("WROUGHTMARK // \(deviceType.rawValue.uppercased())")
+                            .font(.caption2.monospaced().bold())
+                            .foregroundStyle(p.brass)
+                        Text("Mobile Hardware Co-Signer")
+                            .font(.system(.title3, design: .default).weight(.bold))
+                            .foregroundStyle(p.ink)
                     }
-                    .padding(.vertical, 7)
+                    Spacer()
+                    Button(isDark ? "DARK" : "LIGHT") {
+                        isDark.toggle()
+                    }
+                    .padding(.vertical, 5)
                     .padding(.horizontal, 10)
-                    .frame(maxWidth: .infinity)
-                    .background(activeTab == tab ? p.brass : p.surface)
-                    .foregroundStyle(activeTab == tab ? p.bg : p.ink)
+                    .background(p.surface)
+                    .foregroundStyle(p.ink)
                     .overlay(Rectangle().stroke(p.border, lineWidth: 1))
                     .font(.caption2.monospaced().bold())
                 }
-            }
 
-            if activeTab == .cosign {
-                coSignTab
-            } else if activeTab == .slate {
-                slateTab
-            } else {
-                verifyTab
+                // 3-Tab Segmented Selector
+                HStack(spacing: 6) {
+                    ForEach(MobileTab.allCases, id: \.self) { tab in
+                        Button(tab.rawValue) {
+                            activeTab = tab
+                        }
+                        .padding(.vertical, 7)
+                        .padding(.horizontal, 10)
+                        .frame(maxWidth: .infinity)
+                        .background(activeTab == tab ? p.brass : p.surface)
+                        .foregroundStyle(activeTab == tab ? p.bg : p.ink)
+                        .overlay(Rectangle().stroke(p.border, lineWidth: 1))
+                        .font(.caption2.monospaced().bold())
+                    }
+                }
+
+                if activeTab == .cosign {
+                    coSignTab
+                } else if activeTab == .slate {
+                    slateTab
+                } else {
+                    verifyTab
+                }
+
+                Spacer()
             }
+            .padding(16)
         }
-        .padding(16)
-        .background(p.bg)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private var coSignTab: some View {
