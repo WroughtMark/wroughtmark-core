@@ -417,7 +417,7 @@ export async function buildSingleScenario(
       scenario: "MULTI_AUTHOR_HANDOFF",
       fileName: "investigative_dispatch_redacted.txt",
       deliverableText: dispatch,
-      coSignedDevices: ["ios-enclave", "touch-id"],
+      coSignedDevices: ["secure-enclave", "touch-id"],
       extraSummary: { contributors },
       steps: [
         {

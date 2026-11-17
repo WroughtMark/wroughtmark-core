@@ -1366,7 +1366,7 @@ mod tests {
             &chain,
             Discipline::Review,
             final_doc,
-            vec!["ios-enclave".into(), "touch-id".into()],
+            vec!["secure-enclave".into(), "touch-id".into()],
             Some(seal_anchor),
         )
         .unwrap();

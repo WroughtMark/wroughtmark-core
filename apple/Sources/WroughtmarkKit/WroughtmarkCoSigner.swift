@@ -1,8 +1,8 @@
 import Foundation
 
 public enum CoSignerDeviceType: String, Codable, Sendable, CaseIterable {
-    case ios
-    case ipados
+    case secureEnclave = "secure_enclave"
+    case hardwareKey = "hardware_key"
     case watchos
     case visionos
     case metaRayBanDisplay = "meta_rayban_display"

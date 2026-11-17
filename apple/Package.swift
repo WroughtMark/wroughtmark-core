@@ -66,10 +66,7 @@ targets.append(
 let package = Package(
     name: "WroughtmarkKit",
     platforms: [
-        .macOS(.v14),
-        .iOS(.v17),
-        .watchOS(.v10),
-        .visionOS(.v2)
+        .macOS(.v14)
     ],
     products: [
         .library(

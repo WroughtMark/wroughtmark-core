@@ -23,7 +23,7 @@ Wire compatibility preserves `"version": "0.1"` on base `ProcessEvent` and `Wrou
 ### 1.1 Creator Identity (`CreatorKey`)
 - **Algorithm:** Ed25519 signing keypair stored in hardware-backed storage where available (Apple Secure Enclave / Android Keystore / StrongBox / TPM) or an encrypted local keystore.
 - **Key ID:** `wm_key_<base58(blake3(pubkey)[0..16])>`.
-- **Multi-Device Attestation (`v0.1` -> `v0.2`):** A creator's primary desktop key can authorize mobile, wearable, and spatial co-signer devices (iOS, watchOS, Android, Wear OS, visionOS Optic ID, Meta Ray-Ban Display 600x600 HUD + Neural Band sEMG, Meta Quest Horizon OS, Android XR) so physical captures and biometric/motor witnesses bind cryptographically to the same process chain.
+- **Multi-Device Attestation (`v0.1` -> `v0.2`):** A creator's primary desktop key can authorize hardware-backed co-signer devices (Secure Enclave, TPM, or external hardware witnesses) so physical captures and biometric/motor witnesses bind cryptographically to the same process chain.
 
 ### 1.2 Process Chain (`ProcessEvent`)
 Every tracked work maintains a local append-only hash chain:

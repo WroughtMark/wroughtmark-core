@@ -44,7 +44,7 @@ func buildsPhysicalCoSignerEvent() {
     #expect(event?.blake3Digest.hasPrefix("blake3:") == true)
 }
 
-@Test("iOS and watchOS CoSigner mints and verifies hardware-attested physical seal")
+@Test("Hardware CoSigner mints and verifies hardware-attested physical seal")
 func mintsAndVerifiesMobileAndWatchSeal() {
     let capture = Data("watch_wrist_slate_audio_take_01".utf8)
     let sealJSON = WroughtmarkCoSigner.mintCoSignSeal(

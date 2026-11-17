@@ -1218,7 +1218,7 @@ const HTML = `<!doctype html>
           <span class="reg-mark">+ REG 01/A</span>
         </div>
         <h1>Proof of craft, <em>forged</em> while you work.</h1>
-        <p class="lead">Post-hoc AI detectors guess from prose style and punish fluent writers. Wroughtmark stamps local Ed25519 process chains, 9-vector behavioral AI telemetry, and hardware enclave co-signs across desktop, iOS, Android, watchOS, Wear OS, Apple Vision Pro, Meta Quest, and Meta Ray-Ban Display with zero raw-draft uploads.</p>
+        <p class="lead">Post-hoc AI detectors guess from prose style and punish fluent writers. Wroughtmark stamps local Ed25519 process chains, 9-vector behavioral AI telemetry, and hardware enclave co-signs across desktop, creative suites, game engines, and developer tools with zero raw-draft uploads.</p>
         <div class="actions">
           <button id="loadSampleBtn" class="btn btn-primary" type="button">Run Live Sample &amp; Stamp</button>
           <a class="btn btn-ghost" href="#instrument">Open Assay Console</a>
@@ -1260,7 +1260,7 @@ const HTML = `<!doctype html>
     <div class="wire-inner">
       <span><strong>SPEC 0.3</strong> // ZERO-UPLOAD LOCAL CRYPTOGRAPHY</span>
       <span>AI ASSAY: <strong>9 BEHAVIORAL VECTORS · 3 AUTHORSHIP TIERS</strong></span>
-      <span>COMPANIONS: <strong>IOS · ANDROID · WATCHOS · WEAR OS · VISIONOS · HORIZON OS · ANDROID XR</strong></span>
+      <span>PLATFORMS: <strong>MACOS · WINDOWS · LINUX · GAME ENGINES · CREATIVE SUITES</strong></span>
       <span>HUD WITNESS: <strong>META RAY-BAN DISPLAY (600x600) + NEURAL BAND sEMG · 8 STUDIO ADAPTERS</strong></span>
     </div>
   </div>
@@ -1422,11 +1422,11 @@ const HTML = `<!doctype html>
     <div class="cap-grid-3">
       <article class="cap-card">
         <div>
-          <div class="cap-kicker">APPLE MOBILE // iOS &amp; iPadOS</div>
-          <h3 class="cap-title">WroughtmarkKit Phone Witness</h3>
-          <p class="cap-desc">CryptoKit Secure Enclave Ed25519 keys, Face ID / Touch ID biometric gate, local camera desk and sketchbook SHA-256 frame hashing, and 30s studio acoustic fingerprints.</p>
+          <div class="cap-kicker">MACOS MENU BAR // macOS &amp; Darwin</div>
+          <h3 class="cap-title">WroughtmarkKit Menu Bar Companion</h3>
+          <p class="cap-desc">CryptoKit Secure Enclave Ed25519 keys, Touch ID biometric gate, local project folder monitoring, and automatic background process heartbeat attestation.</p>
         </div>
-        <div class="cap-meta">Zero cloud frames · co-signs physical sketchbooks &amp; studio takes</div>
+        <div class="cap-meta">Zero cloud uploads · co-signs local workspaces &amp; studio projects</div>
       </article>
 
       <article class="cap-card">
@@ -1802,7 +1802,7 @@ const HTML = `<!doctype html>
             <td>Creator Pro</td>
             <td style="color:var(--brass);font-weight:600;">\$12/mo · \$99/yr</td>
             <td>Writers, Musicians, Designers</td>
-            <td>iOS/Android &amp; watchOS/Wear OS hardware co-signing, Meta Ray-Ban Display HUD + Neural Band witness, custom badge domains &amp; /v/receipt links</td>
+            <td>Hardware enclave co-signing, smart witness companion integration, custom badge domains &amp; /v/receipt links</td>
           </tr>
           <tr>
             <td>Studio / Publisher</td>
@@ -3496,7 +3496,7 @@ const server = Bun.serve({
     if (url.pathname === "/api/brand-assets") {
       const candidates = [
         { files: ["wroughtmark-logo-mark.jpg", "wroughtmark-logo-mark.png"], label: "Hallmark Emblem (Hammered Brass on Obsidian)" },
-        { files: ["wroughtmark-app-icon.jpg", "wroughtmark-app-icon.png"], label: "macOS & iOS App Icon Concept" },
+        { files: ["wroughtmark-app-icon.jpg", "wroughtmark-app-icon.png"], label: "macOS & Desktop App Icon Concept" },
       ];
       const assets = candidates
         .map((c) => ({ file: c.files.find((f) => existsSync(join(BRAND_DIR, f))), label: c.label }))
