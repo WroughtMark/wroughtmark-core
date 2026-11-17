@@ -137,6 +137,7 @@ public struct WroughtmarkMobileAppView: View {
         case verify = "03 VERIFY"
     }
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var activeTab: MobileTab = .cosign
     @State private var isDark: Bool = true
     @State private var pairingCode: String = "WM-8492"
@@ -166,10 +167,21 @@ public struct WroughtmarkMobileAppView: View {
                 // Top bar with Dark / Light switch
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("WROUGHTMARK // \(deviceType.rawValue.uppercased())")
-                            .font(.caption2.monospaced().bold())
-                            .foregroundStyle(p.brass)
-                        Text("Mobile Hardware Co-Signer")
+                        HStack(spacing: 8) {
+                            Text("WROUGHTMARK // \(deviceType.rawValue.uppercased())")
+                                .font(.caption2.monospaced().bold())
+                                .foregroundStyle(p.brass)
+                            if horizontalSizeClass == .regular {
+                                Text("FOLDABLE / IPAD WORKSTATION")
+                                    .font(.system(size: 9).monospaced().bold())
+                                    .foregroundStyle(p.emerald)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(p.surface)
+                                    .overlay(Rectangle().stroke(p.emerald, lineWidth: 1))
+                            }
+                        }
+                        Text(horizontalSizeClass == .regular ? "Foundry Hardware Co-Signer & Offline Verifier" : "Mobile Hardware Co-Signer")
                             .font(.system(.title3, design: .default).weight(.bold))
                             .foregroundStyle(p.ink)
                     }
@@ -185,28 +197,53 @@ public struct WroughtmarkMobileAppView: View {
                     .font(.caption2.monospaced().bold())
                 }
 
-                // 3-Tab Segmented Selector
-                HStack(spacing: 6) {
-                    ForEach(MobileTab.allCases, id: \.self) { tab in
-                        Button(tab.rawValue) {
-                            activeTab = tab
+                if horizontalSizeClass == .regular {
+                    // DUAL-PANE WORKSTATION LAYOUT (Foldable Unfolded / iPad / Stage Manager)
+                    HStack(alignment: .top, spacing: 16) {
+                        // Left Column: Co-Signing & Hardware Attestations
+                        VStack(alignment: .leading, spacing: 12) {
+                            coSignTab
                         }
-                        .padding(.vertical, 7)
-                        .padding(.horizontal, 10)
-                        .frame(maxWidth: .infinity)
-                        .background(activeTab == tab ? p.brass : p.surface)
-                        .foregroundStyle(activeTab == tab ? p.bg : p.ink)
-                        .overlay(Rectangle().stroke(p.border, lineWidth: 1))
-                        .font(.caption2.monospaced().bold())
-                    }
-                }
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
 
-                if activeTab == .cosign {
-                    coSignTab
-                } else if activeTab == .slate {
-                    slateTab
+                        // Vertical Divider
+                        Rectangle()
+                            .fill(p.border)
+                            .frame(width: 1)
+                            .frame(maxHeight: .infinity)
+
+                        // Right Column: Studio Slate & Offline Verifier
+                        VStack(alignment: .leading, spacing: 16) {
+                            slateTab
+                            Divider().background(p.border)
+                            verifyTab
+                        }
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                    }
                 } else {
-                    verifyTab
+                    // 3-Tab Segmented Selector (Compact iPhone / Folded Cover Screen)
+                    HStack(spacing: 6) {
+                        ForEach(MobileTab.allCases, id: \.self) { tab in
+                            Button(tab.rawValue) {
+                                activeTab = tab
+                            }
+                            .padding(.vertical, 7)
+                            .padding(.horizontal, 10)
+                            .frame(maxWidth: .infinity)
+                            .background(activeTab == tab ? p.brass : p.surface)
+                            .foregroundStyle(activeTab == tab ? p.bg : p.ink)
+                            .overlay(Rectangle().stroke(p.border, lineWidth: 1))
+                            .font(.caption2.monospaced().bold())
+                        }
+                    }
+
+                    if activeTab == .cosign {
+                        coSignTab
+                    } else if activeTab == .slate {
+                        slateTab
+                    } else {
+                        verifyTab
+                    }
                 }
 
                 Spacer()

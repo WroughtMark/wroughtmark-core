@@ -66,12 +66,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.activity:activity-compose:1.9.3")
 
-    // Jetpack Compose
+    // Jetpack Compose & WindowManager for Foldables / Large Screens
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material3:material3-window-size-class")
     implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.window:window:1.3.0")
 
     // Security & Biometric Hardware Key Attestation
     implementation("androidx.biometric:biometric:1.2.0-alpha05")

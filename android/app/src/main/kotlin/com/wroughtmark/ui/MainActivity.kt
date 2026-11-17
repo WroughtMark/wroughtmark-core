@@ -32,6 +32,330 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WroughtmarkAppScreen(controller: WroughtmarkMobileController) {
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val isFoldableExpanded = maxWidth >= 600.dp
+        if (isFoldableExpanded) {
+            WroughtmarkFoldableFoundryScreen(controller)
+        } else {
+            WroughtmarkCompactPhoneScreen(controller)
+        }
+    }
+}
+
+@Composable
+fun WroughtmarkFoldableFoundryScreen(controller: WroughtmarkMobileController) {
+    var isDark by remember { mutableStateOf(controller.isDarkTheme) }
+    var eventCount by remember { mutableIntStateOf(controller.events.size) }
+    var lastVerify by remember { mutableStateOf(controller.lastVerifyPassed) }
+
+    val palette = if (isDark) WroughtmarkComposePalette.Dark else WroughtmarkComposePalette.Light
+    val bgColor = Color(palette.bgHex)
+    val surfaceColor = Color(palette.surfaceHex)
+    val borderColor = Color(palette.borderHex)
+    val inkColor = Color(palette.inkHex)
+    val mutedColor = Color(palette.mutedHex)
+    val brassColor = Color(palette.brassHex)
+    val emeraldColor = Color(palette.emeraldHex)
+
+    Scaffold(
+        topBar = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(surfaceColor)
+                    .padding(horizontal = 20.dp, vertical = 14.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "WROUGHTMARK // FOUNDRY WORKSTATION",
+                            color = brassColor,
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily.Monospace,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(
+                            text = "FOLDABLE ADAPTIVE ACTIVE",
+                            color = emeraldColor,
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily.Monospace,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Text(
+                        text = "Dual-Pane Mobile Hardware Co-Signer & Verifier",
+                        color = inkColor,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+                Button(
+                    onClick = {
+                        controller.toggleTheme()
+                        isDark = controller.isDarkTheme
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = surfaceColor),
+                    shape = RoundedCornerShape(4.dp),
+                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp)
+                ) {
+                    Text(
+                        text = if (isDark) "LIGHT" else "DARK",
+                        color = brassColor,
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 11.sp
+                    )
+                }
+            }
+        },
+        containerColor = bgColor
+    ) { innerPadding ->
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(16.dp)
+        ) {
+            // LEFT PANE: Co-Signing & Hardware Attestations
+            Column(
+                modifier = Modifier
+                    .weight(1.1f)
+                    .fillMaxHeight()
+                    .padding(end = 12.dp)
+            ) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(containerColor = surfaceColor)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "PHYSICAL PROOF OF CRAFT // STRONG-BOX",
+                            color = brassColor,
+                            fontFamily = FontFamily.Monospace,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(
+                            text = "Co-sign commits, manuscripts, and 3D renders with hardware key attestation.",
+                            color = mutedColor,
+                            fontSize = 13.sp
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "PAIRING CODE: ${controller.pairingCode}",
+                                color = inkColor,
+                                fontFamily = FontFamily.Monospace,
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = "HARDWARE SECURED",
+                                color = emeraldColor,
+                                fontFamily = FontFamily.Monospace,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(14.dp))
+
+                Text(
+                    text = "HARDWARE WITNESS ATTESTATIONS ($eventCount)",
+                    color = mutedColor,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 12.sp
+                )
+
+                Spacer(modifier = Modifier.height(6.dp))
+
+                LazyColumn(modifier = Modifier.weight(1f)) {
+                    items(controller.events) { ev ->
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp),
+                            shape = RoundedCornerShape(6.dp),
+                            colors = CardDefaults.cardColors(containerColor = surfaceColor)
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(12.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Column {
+                                    Text(
+                                        text = ev.captureKind.wireValue.uppercase(),
+                                        color = inkColor,
+                                        fontFamily = FontFamily.Monospace,
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        text = ev.note ?: "",
+                                        color = mutedColor,
+                                        fontSize = 11.sp
+                                    )
+                                }
+                                Text(
+                                    text = "SIGNED",
+                                    color = emeraldColor,
+                                    fontFamily = FontFamily.Monospace,
+                                    fontSize = 11.sp
+                                )
+                            }
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Button(
+                    onClick = {
+                        controller.stampPhysicalCapture(
+                            PhysicalCaptureKind.BIOMETRIC_WRIST_PULSE,
+                            "Android StrongBox Biometric Witness"
+                        )
+                        eventCount = controller.events.size
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(containerColor = brassColor),
+                    shape = RoundedCornerShape(6.dp)
+                ) {
+                    Text(
+                        text = "STAMP BIOMETRIC PULSE",
+                        color = Color(0xFF0C0D10),
+                        fontFamily = FontFamily.Monospace,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+
+            // VERTICAL DIVIDER
+            Box(
+                modifier = Modifier
+                    .width(1.dp)
+                    .fillMaxHeight()
+                    .background(borderColor)
+            )
+
+            // RIGHT PANE: Studio Slate & Offline Verifier
+            Column(
+                modifier = Modifier
+                    .weight(0.9f)
+                    .fillMaxHeight()
+                    .padding(start = 12.dp)
+            ) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(containerColor = surfaceColor)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "STUDIO SLATE // ROOM TONE",
+                            color = brassColor,
+                            fontFamily = FontFamily.Monospace,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(
+                            text = "Record ambient acoustic tone and motion signatures to anchor the start of creative takes.",
+                            color = mutedColor,
+                            fontSize = 13.sp
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Button(
+                            onClick = {
+                                controller.stampPhysicalCapture(
+                                    PhysicalCaptureKind.ROOM_TONE_AUDIO,
+                                    "5s Room Tone Studio Slate"
+                                )
+                                eventCount = controller.events.size
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(containerColor = surfaceColor),
+                            shape = RoundedCornerShape(6.dp)
+                        ) {
+                            Text(
+                                text = "CAPTURE 5S ROOM TONE",
+                                color = brassColor,
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(containerColor = surfaceColor)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "OFFLINE POCKET VERIFIER",
+                            color = brassColor,
+                            fontFamily = FontFamily.Monospace,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+                        Text(
+                            text = "Verify any .seal.json or container offline without uploading bytes to any cloud.",
+                            color = mutedColor,
+                            fontSize = 13.sp
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Button(
+                            onClick = {
+                                val result = controller.verifyLatestSeal()
+                                lastVerify = result
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(containerColor = brassColor),
+                            shape = RoundedCornerShape(6.dp)
+                        ) {
+                            Text(
+                                text = "RUN OFFLINE SEAL VERIFICATION",
+                                color = Color(0xFF0C0D10),
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        if (lastVerify != null) {
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Text(
+                                text = if (lastVerify == true) "STATUS: SEAL VALID · HUMAN WROUGHT (100%)" else "STATUS: VERIFICATION FAILED",
+                                color = if (lastVerify == true) emeraldColor else Color(palette.crimsonHex),
+                                fontFamily = FontFamily.Monospace,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun WroughtmarkCompactPhoneScreen(controller: WroughtmarkMobileController) {
     var isDark by remember { mutableStateOf(controller.isDarkTheme) }
     var activeTab by remember { mutableStateOf(controller.activeTab) }
     var eventCount by remember { mutableIntStateOf(controller.events.size) }

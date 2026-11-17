@@ -20,6 +20,15 @@
         android:name="android.hardware.fingerprint"
         android:required="false" />
 
+    <!-- Screen support declarations for foldables, tablets, and multi-window -->
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"
+        android:resizeable="true" />
+
     <application
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -34,6 +43,8 @@
         <activity
             android:name="com.wroughtmark.ui.MainActivity"
             android:exported="true"
+            android:resizeableActivity="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
             android:theme="@android:style/Theme.Material.NoActionBar"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
