@@ -46,6 +46,9 @@ if [ "$OS_NAME" = "Darwin" ] && command -v swift >/dev/null 2>&1; then
   mkdir -p "$APP_BUNDLE/Contents/MacOS" "$APP_BUNDLE/Contents/Resources"
   cp "$APP_BIN" "$APP_BUNDLE/Contents/MacOS/WroughtmarkApp"
   cp "$CLI_BIN" "$APP_BUNDLE/Contents/Resources/wroughtmark"
+  if [ -f "$ROOT/brand/AppIcon.icns" ]; then
+    cp "$ROOT/brand/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
+  fi
   chmod +x "$APP_BUNDLE/Contents/MacOS/WroughtmarkApp" "$APP_BUNDLE/Contents/Resources/wroughtmark"
 
   cat > "$APP_BUNDLE/Contents/Info.plist" <<EOF
@@ -59,6 +62,10 @@ if [ "$OS_NAME" = "Darwin" ] && command -v swift >/dev/null 2>&1; then
   <string>WroughtmarkApp</string>
   <key>CFBundleIdentifier</key>
   <string>com.wroughtmark.app</string>
+  <key>CFBundleIconFile</key>
+  <string>AppIcon</string>
+  <key>CFBundleIconName</key>
+  <string>AppIcon</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundleName</key>
@@ -141,9 +148,12 @@ for plugin in browser-extension office-addin google-workspace-addon skills/wroug
   done
 done
 
-mkdir -p "$DIST/plugins/blender" "$DIST/plugins/reaper"
+mkdir -p "$DIST/plugins/blender" "$DIST/plugins/reaper" "$DIST/plugins/daw-session" "$DIST/plugins/unreal" "$DIST/plugins/unity"
 cp "$ROOT/integrations/blender/wroughtmark_blender.py" "$DIST/plugins/blender/"
 cp "$ROOT/integrations/reaper/wroughtmark_reaper.py" "$DIST/plugins/reaper/"
+cp "$ROOT/integrations/daw-session/wroughtmark_daw_watcher.py" "$DIST/plugins/daw-session/"
+cp -R "$ROOT/integrations/unreal/WroughtmarkUE5.uplugin" "$ROOT/integrations/unreal/Source" "$ROOT/integrations/unreal/Content" "$DIST/plugins/unreal/"
+cp -R "$ROOT/integrations/unity/package.json" "$ROOT/integrations/unity/Editor" "$DIST/plugins/unity/"
 
 if command -v zip >/dev/null 2>&1; then
   (cd "$DIST/plugins" && zip -q -r "$DIST/wroughtmark-plugins-bundle.zip" .)

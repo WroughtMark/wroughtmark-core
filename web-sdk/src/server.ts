@@ -1874,14 +1874,14 @@ const HTML = `<!doctype html>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">Wroughtmark-macOS-arm64.dmg</a></td>
               <td style="color:var(--verdigris);font-weight:600;">Apple Developer ID Signed &amp; Notarized</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">ab7b58f027b0de62ce3dae686a7fcd14d73d87824ae0ab5517ecd3a299be0ad7</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/ab7b58f027b0de62ce3dae686a7fcd14d73d87824ae0ab5517ecd3a299be0ad7" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">46eb3ecee1075b415b8ca43c7671307e477e71890c75a3c88fcfefcf0be8f122</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/46eb3ecee1075b415b8ca43c7671307e477e71890c75a3c88fcfefcf0be8f122" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.tar.gz" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">Wroughtmark-macOS-arm64.tar.gz</a></td>
               <td style="color:var(--verdigris);font-weight:600;">Apple Developer ID Signed &amp; Notarized</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">22036922537283d2db0464316f4095cdebcc5c9c8d17a87c32d946b001ec0e25</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/22036922537283d2db0464316f4095cdebcc5c9c8d17a87c32d946b001ec0e25" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">5280eb6789e25dcbd9bd409dbe1103f71bf473c3b3cebadd7daa18beee2edf68</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/5280eb6789e25dcbd9bd409dbe1103f71bf473c3b3cebadd7daa18beee2edf68" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">wroughtmark-windows-x86_64.zip</a></td>
@@ -1898,8 +1898,8 @@ const HTML = `<!doctype html>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">wroughtmark-plugins-bundle.zip</a></td>
               <td style="color:var(--brass);font-weight:600;">SHA-256 &amp; VirusTotal Verified</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">ae0c7f839cd80f24c50f3a9e17d5f0195ae4815c52d850f563d545d82d5ce7bf</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/ae0c7f839cd80f24c50f3a9e17d5f0195ae4815c52d850f563d545d82d5ce7bf" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">754bf1fdd4dee6a0c445551f58ceed0516d94657ebd500c2f84e295409bd90a1</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/754bf1fdd4dee6a0c445551f58ceed0516d94657ebd500c2f84e295409bd90a1" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
           </tbody>
         </table>

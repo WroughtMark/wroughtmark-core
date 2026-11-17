@@ -294,7 +294,7 @@ describe("Wroughtmark Multi-Scenario Presets, Cohort Triage & Public Receipt Reg
       "https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip",
       "https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/SHA256SUMS.txt",
       "https://www.virustotal.com/gui/file/8d5ecbecacccb49e9d72b3ec59f3feccf2b67759145e9da118f776ca590161aa",
-      "ab7b58f027b0de62ce3dae686a7fcd14d73d87824ae0ab5517ecd3a299be0ad7",
+      "46eb3ecee1075b415b8ca43c7671307e477e71890c75a3c88fcfefcf0be8f122",
       "https://github.com/WroughtMark/wroughtmark-core",
     ]) {
       expect(serverSource).toContain(dl);
