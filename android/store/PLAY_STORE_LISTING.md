@@ -55,6 +55,8 @@ Backed by the open-source wroughtmark-core cryptographic engine. USCO, EU AI Act
 | **7" Tablet 2 (Landscape)** | 1920 × 1200 PNG | `android/store/screenshots/tablet7_2_landscape_1920x1200.png` | Generated |
 | **10" Tablet 1 (Portrait)** | 1600 × 2560 PNG | `android/store/screenshots/tablet10_1_portrait_1600x2560.png` | Generated |
 | **10" Tablet 2 (Landscape)** | 2560 × 1600 PNG | `android/store/screenshots/tablet10_2_landscape_2560x1600.png` | Generated |
+| **Wear OS 1 (Wrist Pulse)** | 454 × 454 PNG | `android/store/screenshots/wear1_wrist_pulse_454x454.png` | Generated |
+| **Wear OS 2 (Room Tone Slate)** | 454 × 454 PNG | `android/store/screenshots/wear2_audio_slate_454x454.png` | Generated |
 
 ---
 

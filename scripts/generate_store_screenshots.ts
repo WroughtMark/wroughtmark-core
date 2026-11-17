@@ -485,6 +485,181 @@ writeFileSync(`${OUTPUT_DIR}/phone2.html`, getPhoneHtml("Acoustic Slate", "Conti
 writeFileSync(`${OUTPUT_DIR}/phone3.html`, getPhoneHtml("Offline Seal Verifier", "Process Provenance & Authorship Inspection", 3, phoneScreen3));
 writeFileSync(`${OUTPUT_DIR}/dual_workstation.html`, getDualPaneHtml("Foundry Dual-Pane Workstation", "Co-Signing, Ambient Sensing & Offline Cryptographic Assay", "FOLDABLE ADAPTIVE ACTIVE", dualPaneLeft, dualPaneRight));
 
+function getWatchHtml(title: string, subtitle: string, beatCount: number, eventText: string): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #000000;
+    color: #F2F4F8;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Display", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    -webkit-font-smoothing: antialiased;
+  }
+  .watch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #232936;
+    padding-bottom: 8px;
+  }
+  .brand { font-family: monospace; font-size: 13px; font-weight: 700; color: #E2AC55; }
+  .beats { font-family: monospace; font-size: 12px; font-weight: 700; color: #34D399; }
+  .title { font-size: 20px; font-weight: 700; margin-top: 8px; color: #FFFFFF; }
+  .status { font-family: monospace; font-size: 11px; color: #34D399; margin-bottom: 12px; }
+  .button-brass {
+    background: #E2AC55;
+    color: #090A0D;
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .button-outline {
+    background: #111318;
+    color: #F2F4F8;
+    border: 1px solid #2C3240;
+    font-family: monospace;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .event-card {
+    background: #111318;
+    border: 1px solid #232936;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 8px;
+  }
+  .event-kind { font-family: monospace; font-size: 11px; font-weight: 700; color: #E2AC55; }
+  .event-hash { font-family: monospace; font-size: 10px; color: #A1A8B6; word-break: break-all; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="watch-header">
+      <span class="brand">WM // WATCH</span>
+      <span class="beats">${beatCount} BEATS</span>
+    </div>
+    <div class="title">${title}</div>
+    <div class="status">● ${subtitle}</div>
+    <div class="button-brass">Stamp Wrist Witness</div>
+    <div class="button-outline">Mark Audio Slate Take</div>
+    <div class="event-card">
+      <div class="event-kind">${eventText}</div>
+      <div class="event-hash">blake3:7c9e8f413a9018bc4a2e...</div>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+function getWearOsHtml(title: string, subtitle: string, beatCount: number): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #000000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .dial {
+    width: 454px;
+    height: 454px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #10131A 0%, #060709 100%);
+    border: 2px solid #E2AC55;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: #E6EDF3;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  }
+  .brand { font-family: monospace; font-size: 14px; font-weight: 700; color: #E2AC55; letter-spacing: 1px; }
+  .status { font-family: monospace; font-size: 11px; color: #34D399; margin-top: 4px; }
+  .pulse-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #34D399;
+    background: rgba(52, 211, 153, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #34D399;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.25);
+  }
+  .title { font-size: 17px; font-weight: 700; color: #FFFFFF; }
+  .btn-stamp {
+    background: #E2AC55;
+    color: #08090C;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 22px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .btn-room {
+    background: #11141B;
+    color: #E2AC55;
+    border: 1px solid #E2AC55;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+  <div class="dial">
+    <div>
+      <div class="brand">WM // WEAR OS</div>
+      <div class="status">● STRONGBOX ATTESTED #${beatCount}</div>
+    </div>
+    <div class="pulse-circle">♥</div>
+    <div>
+      <div class="title">${title}</div>
+      <div style="font-size: 11px; color: #8B949E; margin-bottom: 8px;">${subtitle}</div>
+      <div class="btn-stamp">Stamp Wrist Witness</div>
+      <div class="btn-room">5s Room Tone Slate</div>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+writeFileSync(`${OUTPUT_DIR}/watch1.html`, getWatchHtml("Wrist Slate Witness", "ENCLAVE ATTESTED", 18, "#18 // BIOMETRIC_WRIST_PULSE"));
+writeFileSync(`${OUTPUT_DIR}/watch2.html`, getWatchHtml("Room Tone Slate", "ACOUSTIC ATTESTED", 19, "#19 // ROOM_TONE_AUDIO"));
+writeFileSync(`${OUTPUT_DIR}/wear1.html`, getWearOsHtml("Wrist Biometric Pulse", "StrongBox Hardware Attestation", 12));
+writeFileSync(`${OUTPUT_DIR}/wear2.html`, getWearOsHtml("Acoustic Room Slate", "5s Studio Noise Floor Witness", 13));
+
 console.log("HTML screenshot templates ready. Rendering store assets via Chrome headless...");
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -532,6 +707,14 @@ const targets: RenderTarget[] = [
   { html: "dual_workstation.html", width: 2752, height: 2064, dest: `${APPLE_DIR}/ipad_13_dualpane_landscape_2752x2064.png` },
   { html: "dual_workstation.html", width: 2064, height: 2752, dest: `${APPLE_DIR}/ipad_13_dualpane_portrait_2064x2752.png` },
   { html: "dual_workstation.html", width: 2752, height: 2064, dest: `${APPLE_DIR}/ipad_13_verifier_2752x2064.png` },
+
+  // Wearables: Apple Watch (watchOS 410x502)
+  { html: "watch1.html", width: 410, height: 502, dest: `${APPLE_DIR}/watch1_wrist_pulse_410x502.png` },
+  { html: "watch2.html", width: 410, height: 502, dest: `${APPLE_DIR}/watch2_room_tone_410x502.png` },
+
+  // Wearables: Wear OS Smartwatch (454x454)
+  { html: "wear1.html", width: 454, height: 454, dest: `${ANDROID_DIR}/wear1_wrist_pulse_454x454.png` },
+  { html: "wear2.html", width: 454, height: 454, dest: `${ANDROID_DIR}/wear2_audio_slate_454x454.png` },
 ];
 
 for (const t of targets) {

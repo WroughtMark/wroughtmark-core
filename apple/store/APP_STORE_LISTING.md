@@ -66,6 +66,8 @@ APPLE PLATFORM INTEGRATION
 | **iPad Pro 13" Landscape (Dual-Pane)** | 2752 × 2064 PNG | `apple/store/screenshots/ipad_13_dualpane_landscape_2752x2064.png` | Generated |
 | **iPad Pro 13" Portrait (Dual-Pane)** | 2064 × 2752 PNG | `apple/store/screenshots/ipad_13_dualpane_portrait_2064x2752.png` | Generated |
 | **iPad Pro 13" Verifier Assay** | 2752 × 2064 PNG | `apple/store/screenshots/ipad_13_verifier_2752x2064.png` | Generated |
+| **Apple Watch 1 (Wrist Pulse)** | 410 × 502 PNG | `apple/store/screenshots/watch1_wrist_pulse_410x502.png` | Generated |
+| **Apple Watch 2 (Room Tone Slate)** | 410 × 502 PNG | `apple/store/screenshots/watch2_room_tone_410x502.png` | Generated |
 | **App Store Icon** | 1024 × 1024 PNG | `apple/Wroughtmark-iOS/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png` | Verified |
 
 ---
