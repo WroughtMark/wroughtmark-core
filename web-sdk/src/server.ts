@@ -1874,32 +1874,32 @@ const HTML = `<!doctype html>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.dmg" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">Wroughtmark-macOS-arm64.dmg</a></td>
               <td style="color:var(--verdigris);font-weight:600;">Apple Developer ID Signed &amp; Notarized</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">a44eeebe8559cd671b178926fb8df4a74406b9736fb407cdac5a12855223c53d</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/a44eeebe8559cd671b178926fb8df4a74406b9736fb407cdac5a12855223c53d" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">ab7b58f027b0de62ce3dae686a7fcd14d73d87824ae0ab5517ecd3a299be0ad7</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/ab7b58f027b0de62ce3dae686a7fcd14d73d87824ae0ab5517ecd3a299be0ad7" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/Wroughtmark-macOS-arm64.tar.gz" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">Wroughtmark-macOS-arm64.tar.gz</a></td>
               <td style="color:var(--verdigris);font-weight:600;">Apple Developer ID Signed &amp; Notarized</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">9d77ee4331094abe829312c3d604335175cdedd0cc5768546f699c7ed45b0f41</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/9d77ee4331094abe829312c3d604335175cdedd0cc5768546f699c7ed45b0f41" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">22036922537283d2db0464316f4095cdebcc5c9c8d17a87c32d946b001ec0e25</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/22036922537283d2db0464316f4095cdebcc5c9c8d17a87c32d946b001ec0e25" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-windows-x86_64.zip" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">wroughtmark-windows-x86_64.zip</a></td>
               <td style="color:var(--brass);font-weight:600;">SHA-256 &amp; VirusTotal Verified</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">b1e3264396b18f262f2264a4711a188940713656c921dea710fd1a827582e78f</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/b1e3264396b18f262f2264a4711a188940713656c921dea710fd1a827582e78f" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">8d5ecbecacccb49e9d72b3ec59f3feccf2b67759145e9da118f776ca590161aa</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/8d5ecbecacccb49e9d72b3ec59f3feccf2b67759145e9da118f776ca590161aa" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-linux-x86_64.tar.gz" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">wroughtmark-linux-x86_64.tar.gz</a></td>
               <td style="color:var(--brass);font-weight:600;">SHA-256 &amp; VirusTotal Verified</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">aba4083224d97b42d23afe1817c59019258875b0b353a16a4e6f2080b301f3ff</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/aba4083224d97b42d23afe1817c59019258875b0b353a16a4e6f2080b301f3ff" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">924a8db872eab3747b2837ddbfbb24fd7e8ab6ab1a6ed22cec5053088325430c</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/924a8db872eab3747b2837ddbfbb24fd7e8ab6ab1a6ed22cec5053088325430c" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
             <tr>
               <td><a href="https://github.com/WroughtMark/wroughtmark-core/releases/latest/download/wroughtmark-plugins-bundle.zip" target="_blank" rel="noopener noreferrer" style="color:var(--ink);font-weight:600;text-decoration:underline;">wroughtmark-plugins-bundle.zip</a></td>
               <td style="color:var(--brass);font-weight:600;">SHA-256 &amp; VirusTotal Verified</td>
-              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">14b84d470f3a255aaf37a785db1aac70646fe91fc49750c1cefb9733fae460e1</code></td>
-              <td><a href="https://www.virustotal.com/gui/file/14b84d470f3a255aaf37a785db1aac70646fe91fc49750c1cefb9733fae460e1" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
+              <td><code style="font-size:11px;word-break:break-all;color:var(--ink);">ae0c7f839cd80f24c50f3a9e17d5f0195ae4815c52d850f563d545d82d5ce7bf</code></td>
+              <td><a href="https://www.virustotal.com/gui/file/ae0c7f839cd80f24c50f3a9e17d5f0195ae4815c52d850f563d545d82d5ce7bf" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">VirusTotal Scan</a></td>
             </tr>
           </tbody>
         </table>
